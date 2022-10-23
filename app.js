@@ -5,6 +5,8 @@ const { response } = require('express');
 const { render } = require('ejs');
 const app = express();
 
+const Message = require('./models/message')
+
 
 const dbURI = 'mongodb+srv://admin:toorMB@messageboard.9exeze1.mongodb.net/?retryWrites=true&w=majority'
 
@@ -31,12 +33,10 @@ app.get('/', (req, res) => {
     {
       text: "Hi there!",
       user: "Amando",
-      added: new Date()
     },
     {
       text: "Hello World!",
       user: "Charles",
-      added: new Date()
     }
   ];
 
