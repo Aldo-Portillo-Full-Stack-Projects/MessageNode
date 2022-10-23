@@ -17,6 +17,14 @@ app.use(morgan('dev'))
 
 app.listen(3000)
 
+app.get('/', (req, res) => {
+  res.render('index', {title: 'Home'})
+});
+
+app.get('/new', (req, res) => {
+  res.render('new', { title: 'New'})
+})
+
 
 app.use((req, res)=> {
   res.status(404).render('404', { title: 'Error'})
