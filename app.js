@@ -29,18 +29,26 @@ app.use(morgan('dev'))
 
 app.get('/', (req, res) => {
 
-  const messages = [
-    {
-      text: "Hi there!",
-      user: "Amando",
-    },
-    {
-      text: "Hello World!",
-      user: "Charles",
-    }
-  ];
+  // const messages = [
+  //   {
+  //     text: "Hi there!",
+  //     user: "Amando",
+  //   },
+  //   {
+  //     text: "Hello World!",
+  //     user: "Charles",
+  //   }
+  // ];
 
-  res.render('index', {title: 'Home', messages})
+  // res.render('index', {title: 'Home', messages})
+
+    Message.find().sort({createdAt: -1})
+        .then((result) => {
+            res.render('index', {title: 'Home', messages: result})
+        })
+        .catch((err)=> {
+            console.log(err)
+        })
 });
 
 app.get('/new', (req, res) => {
