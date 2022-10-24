@@ -10,8 +10,10 @@
             <h2>All messages</h2>
             <% if (messages.length > 0){ %>
                 <% messages.forEach(message => { %>
-                    <h3><%= message.user %></h3>
-                    <h5><%= message.text %></h5>
+                    <div class="box">
+                        <h3><%= message.user %></h3>
+                        <h5><%= message.text %></h5>
+                    </div>
                 <%  }) %>
             <% } else { %>
                 <h2>No Messages Found</h2>
