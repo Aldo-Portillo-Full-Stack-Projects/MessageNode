@@ -6,7 +6,7 @@
     <!-- Import Nav partial -->
     <%- include('./partials/nav.ejs') %> 
 
-    <div class="index content">
+    <div class="homepage content">
         <h2>All messages</h2>
         <% if (messages.length > 0){ %>
             <% messages.forEach(message => { %>
@@ -16,7 +16,7 @@
         <% } else { %>
             <h2>No Messages Found</h2>
         <% } %>
-
+    </div>
     <%- include('./partials/footer.ejs') %> 
 </body>
 </html>

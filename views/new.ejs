@@ -9,6 +9,16 @@
     <div class="index content">
         <h2>Message Node New Page</h2>
 
+        <form method="POST" action="/new">
+            <label for="user">Username: </label>
+            <input type="text" id="user" name="user" required>
+            <label for="text">Text: </label>
+            <textarea id="text" name="text" required></textarea>
+            <button>Send</button>
+         </form>
+
+    </div>
+
     <%- include('./partials/footer.ejs') %> 
 </body>
 </html>

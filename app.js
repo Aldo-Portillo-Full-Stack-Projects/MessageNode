@@ -49,7 +49,22 @@ app.get('/new', (req, res) => {
   res.render('new', { title: 'New'})
 })
 
+
+
 //Post Requests
+
+app.post('/new', (req, res) => {
+  const message = new Message(req.body)
+
+  message.save()
+      .then((result) => {
+          res.redirect('/')
+      })
+      .catch((err)=> {
+          console.log(err)
+      })
+})
+
 
 // app.post('/new', (req, res) => {
 //   const message = new Message(req.body)
@@ -68,7 +83,7 @@ app.get('/new', (req, res) => {
 
 
 
-//404 Status Code
-app.use((req, res)=> {
-  res.status(404).render('404', { title: 'Error'})
-})
+// //404 Status Code
+// app.use((req, res)=> {
+//   res.status(404).render('404', { title: 'Error'})
+// })
