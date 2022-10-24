@@ -66,24 +66,8 @@ app.post('/new', (req, res) => {
 })
 
 
-// app.post('/new', (req, res) => {
-//   const message = new Message(req.body)
 
-//   message.save()
-//       .then((result) => {
-//         console.log(result)
-//           res.redirect('/')
-//       })
-//       .catch((err)=> {
-//           console.log(err)
-//       })
-// })
-
-
-
-
-
-// //404 Status Code
-// app.use((req, res)=> {
-//   res.status(404).render('404', { title: 'Error'})
-// })
+//404 Status Code
+app.use((req, res)=> {
+  res.status(404).render('404', { title: 'Error'})
+})
