@@ -7,15 +7,6 @@ const app = express();
 
 const Message = require('./models/message')
 
-
-const dbURI = 'mongodb+srv://admin:toorMB@messageboard.9exeze1.mongodb.net/?retryWrites=true&w=majority'
-
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(result => app.listen(3000))
-  .catch(err => console.log(err));
-
-
-
 app.set('view engine', 'ejs'); 
 
 app.use(express.static('public'))
@@ -24,23 +15,16 @@ app.use(express.urlencoded({extended:true}));
 
 app.use(morgan('dev'))
 
+//app.listen(3000)
 
+const dbURI = 'mongodb+srv://admin:toorMB@messageboard.9exeze1.mongodb.net/?retryWrites=true&w=majority'
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(result => app.listen(3000))
+  .catch(err => console.log(err));
 
 
 app.get('/', (req, res) => {
-
-  // const messages = [
-  //   {
-  //     text: "Hi there!",
-  //     user: "Amando",
-  //   },
-  //   {
-  //     text: "Hello World!",
-  //     user: "Charles",
-  //   }
-  // ];
-
-  // res.render('index', {title: 'Home', messages})
 
     Message.find().sort({createdAt: -1})
         .then((result) => {
@@ -51,8 +35,22 @@ app.get('/', (req, res) => {
         })
 });
 
+app.post('/new', (req, res) => {
+  const message = new Message(req.body)
+
+  message.save()
+      .then((result) => {
+        console.log(result)
+          res.redirect('/')
+      })
+      .catch((err)=> {
+          console.log(err)
+      })
+})
+
 app.get('/new', (req, res) => {
-  res.render('new', { title: 'New'})
+
+        res.render('new', { title: 'New'})
 })
 
 
