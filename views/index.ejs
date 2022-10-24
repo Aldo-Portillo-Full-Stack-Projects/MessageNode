@@ -2,21 +2,23 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %> 
 <body>
+    <div class="app"> 
+        <!-- Import Nav partial -->
+        <%- include('./partials/nav.ejs') %> 
 
-    <!-- Import Nav partial -->
-    <%- include('./partials/nav.ejs') %> 
-
-    <div class="homepage content">
-        <h2>All messages</h2>
-        <% if (messages.length > 0){ %>
-            <% messages.forEach(message => { %>
-                <h3><%= message.user %></h3>
-                <h5><%= message.text %></h5>
-            <%  }) %>
-        <% } else { %>
-            <h2>No Messages Found</h2>
-        <% } %>
+        <div class="homepage-content">
+            <h2>All messages</h2>
+            <% if (messages.length > 0){ %>
+                <% messages.forEach(message => { %>
+                    <h3><%= message.user %></h3>
+                    <h5><%= message.text %></h5>
+                <%  }) %>
+            <% } else { %>
+                <h2>No Messages Found</h2>
+            <% } %>
+        </div>
     </div>
+
     <%- include('./partials/footer.ejs') %> 
 </body>
 </html>

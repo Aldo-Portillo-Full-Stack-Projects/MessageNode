@@ -2,21 +2,22 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %> 
 <body>
+    <div class="app"> 
+        <!-- Import Nav partial -->
+        <%- include('./partials/nav.ejs') %> 
 
-    <!-- Import Nav partial -->
-    <%- include('./partials/nav.ejs') %> 
+        <div class="index content">
+            <h2>New Message</h2>
 
-    <div class="index content">
-        <h2>New Message</h2>
+            <form method="POST" action="/new" class="form">
+                <label for="user">Username: </label>
+                <input type="text" id="user" name="user" required>
+                <label for="text">Text: </label>
+                <textarea id="text" name="text" required></textarea>
+                <button>Send</button>
+            </form>
 
-        <form method="POST" action="/new">
-            <label for="user">Username: </label>
-            <input type="text" id="user" name="user" required>
-            <label for="text">Text: </label>
-            <textarea id="text" name="text" required></textarea>
-            <button>Send</button>
-         </form>
-
+        </div>
     </div>
 
     <%- include('./partials/footer.ejs') %> 
