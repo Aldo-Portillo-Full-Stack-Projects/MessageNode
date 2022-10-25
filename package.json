@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/aldoportillo/MessageNode/issues"
   },
+  "engines": { 
+    "node": "14.18.0" 
+  },
   "homepage": "https://github.com/aldoportillo/MessageNode#readme",
   "dependencies": {
     "ejs": "^3.1.8",
