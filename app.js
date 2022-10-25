@@ -12,7 +12,7 @@ const express = require('express')
   const app = express();
   
   // connect to mongodb & listen for requests
-  const dbURI = "mongodb+srv://admin:toorMB@messageboard.9exeze1.mongodb.net/?retryWrites=true&w=majority";
+  const dbURI = "mongodb+srv://deploy:v6kN7fpI64KEG0GT@messageboard.9exeze1.mongodb.net/?retryWrites=true&w=majority";
   
   mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => app.listen(3000))
