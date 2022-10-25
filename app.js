@@ -14,8 +14,17 @@ const express = require('express')
   // connect to mongodb & listen for requests
   const dbURI = "mongodb+srv://deploy:v6kN7fpI64KEG0GT@messageboard.9exeze1.mongodb.net/?retryWrites=true&w=majority";
   
+
+  let port = process.env.PORT;
+  if (port == null || port == "") {
+    port = 3000;
+  }
+
+app.listen(port);
+
+
   mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(result => app.listen(3000))
+    .then(result => app.listen(process.env.PORT))
     .catch(err => console.log(err));
   
   //Register view engine\
