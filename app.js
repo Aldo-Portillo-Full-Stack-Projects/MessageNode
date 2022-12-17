@@ -25,8 +25,7 @@ if (port == null || port == "") {
 
 
   mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(result => app.listen(process.env.PORT))
-    .then(app.listen(port))
+    .then(result => app.listen(port))
     .catch(err => console.log(err));
     
   
