@@ -15,17 +15,20 @@ const express = require('express')
   const dbURI = "mongodb+srv://admin:toor@messageboard.9exeze1.mongodb.net/?retryWrites=true&w=majority";
   
 
-//   let port = process.env.PORT;
-//   if (port == null || port == "") {
-//     port = 3000;
-//   }
+let port = process.env.PORT;
 
-// app.listen(port);
+if (port == null || port == "") {
+  port = 5001;
+}
 
-app.listen(3000)
+
+
+
   mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => app.listen(process.env.PORT))
+    .then(app.listen(port))
     .catch(err => console.log(err));
+    
   
   //Register view engine\
   app.set('view engine', 'ejs'); 
