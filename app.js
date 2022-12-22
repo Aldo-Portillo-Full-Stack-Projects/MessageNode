@@ -1,5 +1,6 @@
 const express = require('express')
   const morgan = require('morgan')
+  const dotenv = require("dotenv").config()
   
   
   const mongoose = require('mongoose');
@@ -10,22 +11,19 @@ const express = require('express')
   
   // express app
   const app = express();
-  
-  // connect to mongodb & listen for requests
-  const dbURI = "mongodb+srv://admin:toor@messageboard.9exeze1.mongodb.net/?retryWrites=true&w=majority";
-  
 
-let port = process.env.PORT;
-
-if (port == null || port == "") {
-  port = 5001;
-}
+let PORT = process.env.PORT || 5000;
 
 
 
-
-  mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(result => app.listen(port))
+  mongoose
+  .set("strictQuery", false)
+    .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      app.listen(PORT, () => {
+          console.log(`Listening on Port ${PORT}`);
+        })
+    })
     .catch(err => console.log(err));
     
   
