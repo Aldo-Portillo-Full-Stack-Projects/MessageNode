@@ -2,10 +2,8 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %> 
 <body>
+    <%- include('./partials/nav.ejs') %> 
     <div class="app"> 
-        <!-- Import Nav partial -->
-        <%- include('./partials/nav.ejs') %> 
-
         <div class="homepage-content">
             <h2>All messages</h2>
             <% if (messages.length > 0){ %>
