@@ -6,6 +6,13 @@
     font-family: 'Inter', sans-serif;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
 nav {
     display: flex;
     flex-direction: column;
@@ -15,17 +22,13 @@ nav {
 
 nav > ul {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+    justify-content: space-between;
+    width: 50vw;
 }
 
 .app{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
+    width: 50vw;
+    align-self: center;
 }
 
 .app > div > h2{
@@ -58,10 +61,8 @@ input[type="text"], textarea {
   
   }
 
-  .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-    left: 40%;
-  }
+
+
+footer{
+    align-self: center;
+}
