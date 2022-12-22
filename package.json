@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -15,14 +16,17 @@
   "bugs": {
     "url": "https://github.com/aldoportillo/MessageNode/issues"
   },
-  "engines": { 
-    "node": "14.18.0" 
+  "engines": {
+    "node": "14.18.0"
   },
   "homepage": "https://github.com/aldoportillo/MessageNode#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "mongoose": "^6.7.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
   }
 }
